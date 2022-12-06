@@ -4,6 +4,14 @@ Welcome to the Advent of Code[^aoc] Kotlin project created by [ripla][github] us
 
 In this repository, ripla is about to provide solutions for the puzzles using [Kotlin][kotlin] language.
 
+## Note
+
+The solutions in this repository are not meant to be optimal in regard to CPU or memory usage. They are optimised for the readability of the author.
+
+The solutions are in the main source folder, input is in the main `resources` folder (e.g. `Day01.txt` and `Day01_test.txt`) and tests are in the `test` folder.
+
+Input files are not included.
+
 If you're stuck with Kotlin-specific questions or anything related to this template, check out the following resources:
 
 - [Kotlin docs][docs]
