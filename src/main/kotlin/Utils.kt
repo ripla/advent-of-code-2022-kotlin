@@ -17,11 +17,15 @@ fun String.md5() = BigInteger(1, MessageDigest.getInstance("MD5").digest(toByteA
 
 fun <T> List<T>.toPair(): Pair<T, T> {
     if (this.size != 2) {
-        throw IllegalArgumentException("List length must be exactly 2!")
+        throw IllegalArgumentException("List length must be exactly 2! Was ${this.size}")
     }
     return Pair(this[0], this[1])
 }
 
 fun <T, T2> Pair<T, T>.map(mapFun: (T) -> T2): Pair<T2, T2> {
     return Pair(mapFun(this.first), mapFun(this.second))
+}
+
+fun Pair<Int,Int>.toIntRange(): IntRange {
+    return IntRange(this.first, this.second)
 }
