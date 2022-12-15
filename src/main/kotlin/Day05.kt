@@ -23,13 +23,13 @@ object Day5 {
             }
             .filter { !it.contains('[') && !it.contains(']') }
             .filter { !it.all { char -> char == ' ' } }
-            .map {it -> it.filterNot { it.isWhitespace() }}
+            .map { it -> it.filterNot { it.isWhitespace() } }
             .map { it.reversed() }
             .map { it.toMutableList() }
 
         return commandLines.map { commandLine ->
             val commandSplit = commandRegex.findAll(commandLine).map { it.value }.map { it.toInt() }.toList()
-            Command(commandSplit[0], commandSplit[1]-1, commandSplit[2]-1)
+            Command(commandSplit[0], commandSplit[1] - 1, commandSplit[2] - 1)
         }.fold(transposedStacks) { stacks, command ->
             (1..command.amount).forEach { _ -> stacks[command.to].add(stacks[command.from].removeLast()) }
             stacks
@@ -55,14 +55,14 @@ object Day5 {
             }
             .filter { !it.contains('[') && !it.contains(']') }
             .filter { !it.all { char -> char == ' ' } }
-            .map {it -> it.filterNot { it.isWhitespace() }}
+            .map { it -> it.filterNot { it.isWhitespace() } }
             .map { it.reversed() }
             .map { it.toMutableList() }
             .toList()
 
         return commandLines.map { commandLine ->
             val commandSplit = commandRegex.findAll(commandLine).map { it.value }.map { it.toInt() }.toList()
-            Command(commandSplit[0], commandSplit[1]-1, commandSplit[2]-1)
+            Command(commandSplit[0], commandSplit[1] - 1, commandSplit[2] - 1)
         }.fold(transposedStacks) { stacks, command ->
             stacks[command.to].addAll(stacks[command.from].takeLast(command.amount))
             (1..command.amount).forEach { _ -> stacks[command.from].removeLast() }
